@@ -1,0 +1,63 @@
+{{!-- students/edit.hbs – This is where I can update an existing student's information --}}
+
+<h2 class="mb-4 text-center">Edit Student</h2>
+
+<form action="/students/{{student._id}}/edit" method="POST" class="mx-auto" style="max-width: 600px;">
+  <div class="mb-3">
+    <label for="name" class="form-label">Full Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      required
+      value="{{student.name}}"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      required
+      value="{{student.email}}"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="program" class="form-label">Program</label>
+    <input
+      type="text"
+      id="program"
+      name="program"
+      class="form-control"
+      required
+      value="{{student.program}}"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="year" class="form-label">Year of Study</label>
+    <input
+      type="number"
+      id="year"
+      name="year"
+      class="form-control"
+      required
+      min="1"
+      max="6"
+      value="{{student.year}}"
+    />
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-warning">Update Student</button>
+  </div>
+</form>
+
+<div class="text-center mt-4">
+  <a href="/students" class="btn btn-outline-secondary">Back to Student List</a>
+</div>

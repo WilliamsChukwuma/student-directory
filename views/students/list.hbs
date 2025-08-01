@@ -1,0 +1,65 @@
+{{!-- students/list.hbs – This is the main list where I display all students, and allow public search --}}
+
+<h2 class="mb-4 text-center">Student Directory</h2>
+
+{{!-- Search Form --}}
+<form method="GET" action="/students" class="row mb-4">
+  <div class="col-md-9">
+    <input
+      type="text"
+      name="search"
+      class="form-control"
+      placeholder="Search by student name..."
+      value="{{search}}"
+    />
+  </div>
+  <div class="col-md-3 d-grid">
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+  </div>
+</form>
+
+{{!-- If there are students in the list, I display them in a table --}}
+{{#if students.length}}
+  <table class="table table-bordered table-hover align-middle">
+    <thead class="table-primary">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Program</th>
+        <th>Year</th>
+        {{#if user}}
+          <th>Actions</th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each students}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.email}}</td>
+          <td>{{this.program}}</td>
+          <td>{{this.year}}</td>
+
+          {{!-- If I'm logged in, I show Edit and Delete buttons --}}
+          {{#if ../user}}
+            <td>
+              <a href="/students/{{this._id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+              <form method="POST" action="/students/{{this._id}}/delete" class="d-inline">
+                <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+              </form>
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p class="alert alert-warning text-center">No students found.</p>
+{{/if}}
+
+{{!-- If logged in, I give users a quick way to add a student --}}
+{{#if user}}
+  <div class="text-center mt-4">
+    <a href="/students/new" class="btn btn-success">Add New Student</a>
+  </div>
+{{/if}}

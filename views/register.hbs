@@ -1,0 +1,47 @@
+{{!-- register.hbs – This is the page where users can create a new account to access the student directory --}}
+
+<h2 class="mb-4 text-center">Create a New Account</h2>
+
+<form action="/register" method="POST" class="mx-auto" style="max-width: 400px;">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      required
+      placeholder="Choose a username"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      required
+      placeholder="Create a strong password"
+    />
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-success">Register</button>
+  </div>
+</form>
+
+<hr class="my-4">
+
+<div class="text-center">
+  <p class="mb-2">Already have an account?</p>
+  <a href="/login" class="btn btn-outline-primary">Log In</a>
+</div>
+
+<div class="text-center mt-3">
+  <p>or</p>
+  <a href="/auth/github" class="btn btn-dark">
+    <i class="bi bi-github me-1"></i> Register with GitHub
+  </a>
+</div>

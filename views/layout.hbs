@@ -1,0 +1,51 @@
+<!-- layout.hbs – This is the main HTML layout for every page in my app -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+
+    <!-- I'm using Bootstrap from a CDN for quick, professional styling -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Linking to my own stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Navbar: I'm using this to let users navigate and see login state -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Student Directory</a>
+
+        <div class="d-flex">
+          {{#if user}}
+            <!-- If the user is logged in, I show logout -->
+            <span class="navbar-text text-white me-2">
+              Logged in as {{user.username}}
+            </span>
+            <a href="/logout" class="btn btn-outline-light">Logout</a>
+          {{else}}
+            <!-- If not logged in, I show register and login -->
+            <a href="/register" class="btn btn-outline-light me-2">Register</a>
+            <a href="/login" class="btn btn-light">Login</a>
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main container where all the pages will load -->
+    <main class="container flex-grow-1">
+      {{{body}}} <!-- I'm injecting the content of each view here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-auto">
+      <p class="mb-0">© 2025 Student Directory App – Built with 💙 by Me</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+} */
+/* style.css – My custom styles to enhance the look of the Student Directory */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+form input,
+form select,
+form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+form label {
+  font-weight: 500;
+}
+
+.alert {
+  border-radius: 5px;
+}
+
+footer {
+  font-size: 0.9rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, 0.25);
+}
+
+/* Mobile-friendly tweaks */
+@media (max-width: 576px) {
+  .btn-lg {
+    width: 100%;
+  }
+}

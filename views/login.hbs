@@ -1,0 +1,54 @@
+{{!-- login.hbs – This is the login form where I allow users to log in using a username and password --}}
+
+<h2 class="mb-4 text-center">Login to Your Account</h2>
+
+{{!-- If there's a login error (from connect-flash), I show it here --}}
+{{#if error}}
+  <div class="alert alert-danger text-center">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/login" method="POST" class="mx-auto" style="max-width: 400px;">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      required
+      placeholder="Enter your username"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      required
+      placeholder="Enter your password"
+    />
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </div>
+</form>
+
+<hr class="my-4">
+
+<div class="text-center">
+  <p class="mb-2">Don't have an account?</p>
+  <a href="/register" class="btn btn-outline-secondary">Register</a>
+</div>
+
+<div class="text-center mt-3">
+  <p>or</p>
+  <a href="/auth/github" class="btn btn-dark">
+    <i class="bi bi-github me-1"></i> Log in with GitHub
+  </a>
+</div>
